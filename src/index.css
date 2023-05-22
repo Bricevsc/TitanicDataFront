@@ -8,7 +8,25 @@ body {
   background-color: #CACACA;
   height: 100vh;
 }
-
+.navbar{
+  display: flex;
+  justify-content: left;
+  background-color: #18534F;
+  margin: 0;
+}
+.navbar a{
+  text-decoration: none;
+  list-style: none;
+  padding: 1em;
+  background-color: #226D68;
+  margin: 10px;
+  color: aliceblue;
+  border-radius:5%;
+}
+.footerpage{
+  margin: 1em;
+  background-color: #226D68;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,18 +1,3 @@
 .App {
   text-align: center;
 }
-.navbar{
-  display: flex;
-  justify-content: left;
-  background-color: #18534F;
-  margin: 0;
-}
-.navbar a{
-  text-decoration: none;
-  list-style: none;
-  padding: 1em;
-  background-color: #226D68;
-  margin: 10px;
-  color: aliceblue;
-  border-radius:5%;
-}
