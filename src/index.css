@@ -34,7 +34,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.formregister {
+.formregister, .formlogin {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -45,14 +45,14 @@ code {
   background: linear-gradient(145deg, #d2d9d8, #f9ffff);
   box-shadow: 8px 8px 16px #5d6060, -8px -8px 16px #ffffff;
 }
-.formregister input {
+.formregister input , .formlogin input{
   text-align: left;
   width: 60%;
   margin: 0.5em;
   height: 2.5em;
   font-size: large;
 }
-.formregister button {
+.formregister button, .formlogin button{
   text-decoration: none;
   list-style: none;
   font-size: large;
