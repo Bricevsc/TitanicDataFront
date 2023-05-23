@@ -1,9 +1,10 @@
 import "./App.css";
+import FormRegister from "./components/FormRegister";
 
 function App() {
   return (
     <div className="App">
-
+      <FormRegister />
     </div>
   );
 }
