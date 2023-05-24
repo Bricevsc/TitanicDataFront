@@ -1,44 +1,30 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, redirect } from "react-router-dom";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const sendForm = () => {
-    axios({
-      method: "post",
-      url: `http://localhost:8000/`,
-      withCredentials: true,
-      data: {
+  const sendForm = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post("http://localhost:8000/", {
         email,
         password,
-      },
-    });
-  };
-
-  const submit = () => {
-    if (!email || !password) {
-      alert("veuillez renseigner email et message");
-    } else {
-      try {
-        sendForm();
-        clearForm();
-        alert("vous êtes connecté");
-      } catch (error) {
-        alert(`le formulaire ne s'est pas envoyé.` + error);
-      }
-    }
-  };
-
-  const clearForm = () => {
+      })
+      .then(function (response) {
+        if (response.data.auth === true) redirect("/dashboard");
+      });
     setEmail("");
     setPassword("");
   };
+
   return (
     <div id="formlogin">
       <h2>Connexion</h2>
-      <form method="POST">
+      <form onSubmit={sendForm}>
         <div className="formlogin">
           <input
             type="email"
@@ -58,11 +44,10 @@ const FormLogin = () => {
             required
             autoComplete="off"
           />
-          <button className="sendbutton" onClick={submit}>
-            📨
-          </button>
+          <button className="sendbutton">📨</button>
         </div>
       </form>
+      <Link to={'/register'}>Vous n'avez pas de compte ?</Link>
     </div>
   );
 };

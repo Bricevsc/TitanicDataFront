@@ -1,4 +1,5 @@
 body {
+  text-align: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -8,9 +9,16 @@ body {
   background-color: #cacaca;
   height: 100vh;
 }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
 h2 {
   padding-bottom: 0.5vh;
   padding-top: 1vh;
+}
+form{
+  width: 60%
 }
 .navbar {
   display: flex;
@@ -31,17 +39,16 @@ h2 {
   margin: 1em;
   background-color: #226d68;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-.formregister, .formlogin {
+#formregister, #formlogin{
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: 20%;
-  margin-right: 20%;
-  padding: 20px;
+}
+.formregister, .formlogin {
+  display: flex; 
+  align-items: center;
+  flex-direction: column;
+  padding: 20px; 
   border-radius: 44px;
   background: linear-gradient(145deg, #d2d9d8, #f9ffff);
   box-shadow: 8px 8px 16px #5d6060, -8px -8px 16px #ffffff;
@@ -64,3 +71,7 @@ code {
   color: aliceblue;
   border-radius: 10%;
 }
+#formregister a, #formlogin a{
+  text-decoration: none;
+  margin-top: 2vh ;
+ }

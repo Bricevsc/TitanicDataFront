@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const FormRegister = () => {
   const [lastname, setLastname] = useState("");
@@ -9,17 +10,7 @@ const FormRegister = () => {
 
   const sendForm = async (e) => {
     e.preventDefault();
-    // axios({
-    //   method: "post",
-    //   url: `http://localhost:8000/register`,
-    //   withCredentials: true,
-    //   data: {
-    // lastname,
-    //   firstname,
-    //   email,
-    //   password,
-    //   },
-    // });
+
     await axios.post("http://localhost:8000/register", {
       lastname,
       firstname,
@@ -76,6 +67,7 @@ const FormRegister = () => {
           <button className="sendbutton">📨</button>
         </div>
       </form>
+      <Link to={'/'}>Vous avez un compte ?</Link>
     </div>
   );
 };

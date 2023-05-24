@@ -1,12 +1,17 @@
-import "./App.css";
-// import FormLogin from "./components/FormLogin";
-import FormRegister from "./components/FormRegister";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { RegisterPage } from "./pages/Register";
+import Navbar from "./components/navbar";
+import './index.css';
 
 function App() {
   return (
     <div className="App">
-      {/* <FormLogin /> */}
-      <FormRegister />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
     </div>
   );
 }
