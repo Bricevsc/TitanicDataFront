@@ -10,6 +10,7 @@ body {
 }
 h2 {
   padding-bottom: 0.5vh;
+  padding-top: 1vh;
 }
 .navbar {
   display: flex;

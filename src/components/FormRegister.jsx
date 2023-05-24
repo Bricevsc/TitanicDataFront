@@ -7,43 +7,36 @@ const FormRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //   const sendForm = () => {
-  //     axios({
-  //       method: "post",
-  //       url: `http://localhost:8000/titanic/users`,
-  //       withCredentials: true,
-  //       data: {
-  //         lastname,
-  //         firstname,
-  //         email,
-  //         password,
-  //       },
-  //     });
-  //   };
-
-  //   const clearForm = () => {
-  //     setLastname(""), setFirstname(""), setEmail(""), setPassword("");
-  //   };
-
-  const submit = () => {
-    if (!email || !password) {
-      alert("veuillez renseigner email et message");
-    } else {
-      try {
-        // sendForm();
-        // clearForm();
-        alert("le formulaire est envoyé");
-      } catch (error) {
-        alert(`le formulaire ne s'est pas envoyé.` + error);
-      }
-    }
+  const sendForm = async (e) => {
+    e.preventDefault();
+    // axios({
+    //   method: "post",
+    //   url: `http://localhost:8000/register`,
+    //   withCredentials: true,
+    //   data: {
+    // lastname,
+    //   firstname,
+    //   email,
+    //   password,
+    //   },
+    // });
+    await axios.post("http://localhost:8000/register", {
+      lastname,
+      firstname,
+      email,
+      password,
+    });
+    setLastname("");
+    setFirstname("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
     <div id="formregister">
       <h2>Créer votre compte</h2>
-      <form method="POST">
-        <div class="formregister">
+      <form onSubmit={sendForm}>
+        <div className="formregister">
           <input
             type="text"
             placeholder="Nom"
@@ -51,7 +44,7 @@ const FormRegister = () => {
             id="lastname"
             onChange={(e) => setLastname(e.target.value)}
             required
-            autocomplete="off"
+            autoComplete="off"
           />
           <input
             type="text"
@@ -60,7 +53,7 @@ const FormRegister = () => {
             id="firstname"
             onChange={(e) => setFirstname(e.target.value)}
             required
-            autocomplete="off"
+            autoComplete="off"
           />
           <input
             type="email"
@@ -69,7 +62,7 @@ const FormRegister = () => {
             id="email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            autocomplete="off"
+            autoComplete="off"
           />
           <input
             type="password"
@@ -78,10 +71,9 @@ const FormRegister = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            autocomplete="off"
+            autoComplete="off"
           />
           <button className="sendbutton">📨</button>
-          {/* onClick={submit} */}
         </div>
       </form>
     </div>
