@@ -54,7 +54,7 @@ p{
   padding: 20px; 
   border-radius: 44px;
   background: linear-gradient(145deg, #d2d9d8, #f9ffff);
-  box-shadow: 8px 8px 16px #5d6060, -8px -8px 16px #ffffff;
+  box-shadow: 4px 4px 8px #5d6060, -4px -4px 8px #ffffff;
 }
 .formregister input , .formlogin input{
   text-align: left;
