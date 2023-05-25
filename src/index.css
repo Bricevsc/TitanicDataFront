@@ -20,6 +20,9 @@ h2 {
 form{
   width: 60%
 }
+p{
+  padding: 20px;
+}
 .navbar {
   display: flex;
   justify-content: left;
@@ -74,4 +77,9 @@ form{
 #formregister a, #formlogin a{
   text-decoration: none;
   margin-top: 2vh ;
+ }
+ .warning {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
  }
