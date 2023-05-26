@@ -16,8 +16,10 @@ const FormLogin = () => {
     });
     setEmail("");
     setPassword("");
-    if (response.data.auth) {
+    if (response.headers["x-auth-token"]) {
+      localStorage.setItem("authToken", response.headers["x-auth-token"]);
       redirect("/dashboard");
+      return;
     } else {
       setConnected(false);
     }

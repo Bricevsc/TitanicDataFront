@@ -42,12 +42,12 @@ p{
   margin: 1em;
   background-color: #226d68;
 }
-#formregister, #formlogin{
+#formregister, #formlogin, #formdashboard{
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.formregister, .formlogin .formdashboard{
+.formregister, .formlogin{
   display: flex; 
   align-items: center;
   flex-direction: column;
@@ -56,14 +56,30 @@ p{
   background: linear-gradient(145deg, #d2d9d8, #f9ffff);
   box-shadow: 4px 4px 8px #5d6060, -4px -4px 8px #ffffff;
 }
-.formregister input , .formlogin input{
+.formdashboard{
+  display: flex; 
+  align-items: center;
+  flex-direction: row;
+  padding: 20px; 
+  border-radius: 44px;
+  background: linear-gradient(145deg, #d2d9d8, #f9ffff);
+  box-shadow: 4px 4px 8px #5d6060, -4px -4px 8px #ffffff;
+}
+.formregister input , .formlogin input , .formdashboard input{
   text-align: left;
   width: 60%;
   margin: 0.5em;
   height: 2.5em;
   font-size: large;
 }
-.formregister button, .formlogin button{
+.formdashboard select{
+  text-align: center;
+  width: 60%;
+  margin: 0.5em;
+  height: 2.5em;
+  font-size: large;
+}
+.formregister button, .formlogin button, .formdashboard button{
   text-decoration: none;
   list-style: none;
   font-size: large;
@@ -80,17 +96,16 @@ p{
   color: black;
  }
 
-.chartBox {
-  width: 700px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  
-}
-
  .warning {
   background-color: red;
   color: white;
   font-weight: bolder;
  }
 
+ .chartBox {
+  width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
