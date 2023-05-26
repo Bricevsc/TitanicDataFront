@@ -9,9 +9,9 @@ const Navbar = () => {
       <Link to={"/register"}>
         <li>Register</li>
       </Link>
-      {/* <Link to={"/dashboard"}>
+      <Link to={"/dashboard"}>
         <li>Dashboard</li>
-      </Link> */}
+      </Link>
     </ul>
   );
 };

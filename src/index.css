@@ -44,7 +44,7 @@ form{
   align-items: center;
   flex-direction: column;
 }
-.formregister, .formlogin {
+.formregister, .formlogin .formdashboard{
   display: flex; 
   align-items: center;
   flex-direction: column;
@@ -75,3 +75,11 @@ form{
   text-decoration: none;
   margin-top: 2vh ;
  }
+
+.chartBox {
+  width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
