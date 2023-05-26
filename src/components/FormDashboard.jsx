@@ -9,8 +9,8 @@ const FormDashboard = () => {
   const [sex, setSex] = useState("");
   const [age, setAge] = useState("");
   const [pclass, setPclass] = useState("");
-  const [passengerDead] = useState("");
-  const [passengerAlive] = useState("");
+  const [passengerDead, setPassengerDead] = useState("1");
+  const [passengerAlive, setPassengerAlive] = useState("1");
 
   const sendForm = async (e) => {
     console.log(sex, age, pclass);
@@ -34,7 +34,7 @@ const FormDashboard = () => {
     labels: ["Nombre de passagers mort", "Nombre de passagers en vie"],
     datasets: [
       {
-        label: "# of Votes",
+        label: "Passengers",
         data: [passengerDead, passengerAlive],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
@@ -42,6 +42,11 @@ const FormDashboard = () => {
       },
     ],
   };
+
+  const clearData = () => {
+    setPassengerDead("");
+    setPassengerAlive("");
+  }
 
   return (
     <div id="formdashboard">
@@ -79,6 +84,7 @@ const FormDashboard = () => {
           <button className="sendbutton">📨</button>
         </div>
       </form>
+      <button className="reset" onClick={clearData}>Reset</button>
       <div className="chartBox">
         <h3>Graphique</h3>
         <Doughnut data={data} />

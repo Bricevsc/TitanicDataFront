@@ -17,11 +17,22 @@ h2 {
   padding-bottom: 0.5vh;
   padding-top: 1vh;
 }
-form{
-  width: 60%
+form {
+  width: 60%;
 }
-p{
+p {
   padding: 20px;
+}
+button {
+  text-decoration: none;
+  list-style: none;
+  font-size: large;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  background-color: #226d68;
+  color: aliceblue;
+  border-radius: 10%;
 }
 .navbar {
   display: flex;
@@ -42,70 +53,68 @@ p{
   margin: 1em;
   background-color: #226d68;
 }
-#formregister, #formlogin, #formdashboard{
+#formregister,
+#formlogin,
+#formdashboard {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.formregister, .formlogin{
-  display: flex; 
+.formregister,
+.formlogin {
+  display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 20px; 
+  padding: 20px;
   border-radius: 44px;
   background: linear-gradient(145deg, #d2d9d8, #f9ffff);
   box-shadow: 4px 4px 8px #5d6060, -4px -4px 8px #ffffff;
 }
-.formdashboard{
-  display: flex; 
+.formdashboard {
+  display: flex;
   align-items: center;
   flex-direction: row;
-  padding: 20px; 
+  padding: 20px;
   border-radius: 44px;
   background: linear-gradient(145deg, #d2d9d8, #f9ffff);
   box-shadow: 4px 4px 8px #5d6060, -4px -4px 8px #ffffff;
 }
-.formregister input , .formlogin input , .formdashboard input{
+.formregister input,
+.formlogin input,
+.formdashboard input {
   text-align: left;
   width: 60%;
   margin: 0.5em;
   height: 2.5em;
   font-size: large;
 }
-.formdashboard select{
+.formdashboard select {
   text-align: center;
   width: 60%;
   margin: 0.5em;
   height: 2.5em;
   font-size: large;
 }
-.formregister button, .formlogin button, .formdashboard button{
-  text-decoration: none;
-  list-style: none;
-  font-size: large;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 0.5em;
-  background-color: #226d68;
-  color: aliceblue;
-  border-radius: 10%;
-}
-#formregister a, #formlogin a{
-  text-decoration: none;
-  margin-top: 2vh ;
-  color: black;
- }
 
- .warning {
+#formregister a,
+#formlogin a {
+  text-decoration: none;
+  margin-top: 2vh;
+  color: black;
+}
+
+.warning {
   background-color: red;
   color: white;
   font-weight: bolder;
- }
-
- .chartBox {
+}
+.reset{
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+}
+.chartBox {
   width: 700px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  
 }
