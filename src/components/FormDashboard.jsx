@@ -8,9 +8,27 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const FormDashboard = () => {
   const [sex, setSex] = useState("");
   const [age, setAge] = useState("");
-  const [classe, setClasse] = useState("");
-  const [passengerDead] = useState("1");
-  const [passengerAlive] = useState("2");
+  const [pclass, setPclass] = useState("");
+  const [passengerDead] = useState("");
+  const [passengerAlive] = useState("");
+
+  const sendForm = async (e) => {
+    console.log(sex, age, pclass);
+    e.preventDefault();
+    const token = localStorage.getItem("authToken");
+    const response = await axios.post(
+      "http://localhost:8000/dashboard",
+      {
+        data: { sex, age, pclass },
+      },
+      {
+        headers: {
+          "x-auth-token": token,
+        },
+      }
+    );
+    console.log(response);
+  };
 
   const data = {
     labels: ["Nombre de passagers mort", "Nombre de passagers en vie"],
@@ -25,19 +43,6 @@ const FormDashboard = () => {
     ],
   };
 
-  const sendForm = async (e) => {
-    e.preventDefault();
-
-    const response = await axios.post("http://localhost:8000/", {
-      sex,
-      age,
-      classe,
-    });
-    setSex("");
-    setAge("");
-    setClasse("");
-  };
-  console.log(sex, age, classe);
   return (
     <div id="formdashboard">
       <h2>Dashboard Data</h2>
@@ -45,35 +50,31 @@ const FormDashboard = () => {
         <div className="formdashboard">
           <select
             name="select"
-            onchange={(e) => setSex(e.target.value)}
-            required
+            onChange={(e) => setSex(e.target.value)}
             autoComplete="off"
           >
             <option value="all" selected>
-              Tous
+              Tous 
             </option>
             <option value="male">Homme</option>
             <option value="female">Femme</option>
           </select>
           <input
-            type="number"
+            type="text"
             placeholder="Age"
             name="age"
             maxlength="3"
             onChange={(e) => setAge(e.target.value)}
-            required
             autoComplete="off"
           />
           <select
             name="select"
-            onchange={(e) => setClasse(e.target.value)}
-            required
+            onChange={(e) => setPclass(e.target.value)}
             autoComplete="off"
           >
-            <option value="class1">C1</option>
-            <option value="class2">C2</option>
-            <option value="class3">C3</option>
-            <option value="class4">C4</option>
+            <option value="1">C1</option>
+            <option value="2">C2</option>
+            <option value="3">C3</option>
           </select>
           <button className="sendbutton">📨</button>
         </div>

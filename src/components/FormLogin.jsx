@@ -19,7 +19,6 @@ const FormLogin = () => {
     if (response.headers["x-auth-token"]) {
       localStorage.setItem("authToken", response.headers["x-auth-token"]);
       redirect("/dashboard");
-      return;
     } else {
       setConnected(false);
     }
