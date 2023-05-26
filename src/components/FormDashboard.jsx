@@ -6,7 +6,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const FormDashboard = () => {
-  const [sex, setSex] = useState("");
+  const [sex, setSex] = useState("all");
   const [age, setAge] = useState("");
   const [pclass, setPclass] = useState("");
   const [passengerDead, setPassengerDead] = useState("1");
