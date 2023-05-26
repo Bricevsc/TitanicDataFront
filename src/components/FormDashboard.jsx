@@ -19,7 +19,9 @@ const FormDashboard = () => {
     const response = await axios.post(
       "http://localhost:8000/dashboard",
       {
-        data: { sex, age, pclass },
+        sex,
+        age,
+        pclass,
       },
       {
         headers: {
@@ -27,7 +29,8 @@ const FormDashboard = () => {
         },
       }
     );
-    console.log(response);
+    setPassengerAlive(response.data.survivedPassengers)
+    setPassengerDead(response.data.deadPassengers)
   };
 
   const data = {
@@ -46,7 +49,7 @@ const FormDashboard = () => {
   const clearData = () => {
     setPassengerDead("");
     setPassengerAlive("");
-  }
+  };
 
   return (
     <div id="formdashboard">
@@ -59,7 +62,7 @@ const FormDashboard = () => {
             autoComplete="off"
           >
             <option value="all" selected>
-              Tous 
+              Tous
             </option>
             <option value="male">Homme</option>
             <option value="female">Femme</option>
@@ -84,7 +87,9 @@ const FormDashboard = () => {
           <button className="sendbutton">📨</button>
         </div>
       </form>
-      <button className="reset" onClick={clearData}>Reset</button>
+      <button className="reset" onClick={clearData}>
+        Reset
+      </button>
       <div className="chartBox">
         <h3>Graphique</h3>
         <Doughnut data={data} />

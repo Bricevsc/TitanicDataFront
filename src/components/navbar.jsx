@@ -1,6 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [isLogin, setIsLogin] = useState(localStorage.getItem("authToken"));
+  const deleteToken = () => {
+    localStorage.clear();
+    setIsLogin(false);
+  };
   return (
     <ul className="navbar">
       <Link to={"/"}>
@@ -12,6 +18,11 @@ const Navbar = () => {
       <Link to={"/dashboard"}>
         <li>Dashboard</li>
       </Link>
+      {Boolean(isLogin) && (
+        <button className="navbutton" onClick={deleteToken}>
+          Déconnection
+        </button>
+      )}
     </ul>
   );
 };

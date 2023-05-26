@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [connected, setConnected] = useState(true);
+  const navigate = useNavigate();
 
   const sendForm = async (e) => {
     e.preventDefault();
@@ -14,11 +15,11 @@ const FormLogin = () => {
       email,
       password,
     });
-    setEmail("");
     setPassword("");
+    setEmail("");
     if (response.headers["x-auth-token"]) {
       localStorage.setItem("authToken", response.headers["x-auth-token"]);
-      redirect("/dashboard");
+      navigate("/dashboard");
     } else {
       setConnected(false);
     }
