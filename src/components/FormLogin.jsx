@@ -5,25 +5,30 @@ import { Link, redirect } from "react-router-dom";
 const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [connected, setConnected] = useState(true);
 
   const sendForm = async (e) => {
     e.preventDefault();
 
-    await axios
-      .post("http://localhost:8000/", {
-        email,
-        password,
-      })
-      .then(function (response) {
-        if (response.data.auth === true) redirect("/dashboard");
-      });
+    const response = await axios.post("http://localhost:8000/", {
+      email,
+      password,
+    });
     setEmail("");
     setPassword("");
+    if (response.data.auth) {
+      redirect("/dashboard");
+    } else {
+      setConnected(false);
+    }
   };
 
   return (
     <div id="formlogin">
       <h2>Connexion</h2>
+      {Boolean(!connected) && (
+        <p className="warning">Une erreur s'est produite.</p>
+      )}
       <form onSubmit={sendForm}>
         <div className="formlogin">
           <input
@@ -47,7 +52,7 @@ const FormLogin = () => {
           <button className="sendbutton">📨</button>
         </div>
       </form>
-      <Link to={'/register'}>Vous n'avez pas de compte ?</Link>
+      <Link to={"/register"}>Vous n'avez pas de compte ?</Link>
     </div>
   );
 };
